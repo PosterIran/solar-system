@@ -3,10 +3,10 @@
     --venus-orbit-size: 27vw;
     --earth-orbit-size: 35vw;
     --mars-orbit-size: 45vw;
-    --jupiter-orbit-size: 55vw;
-    --saturn-orbit-size: 65vw;
-    --uranus-orbit-size: 75vw;
-    --neptune-orbit-size: 85vw;
+    --jupiter-orbit-size: 65vw; 
+    --saturn-orbit-size: 75vw; 
+    --uranus-orbit-size: 85vw; 
+    --neptune-orbit-size: 95vw; 
 
     --mercury-size: 1vw;
     --venus-size: 1.2vw;
@@ -82,7 +82,7 @@ h1 {
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 50%;
-    border: 0.1vw dotted rgba(255, 255, 255, 1);
+    border: 0.1vw solid rgba(255, 255, 255, 0.4); 
     animation: orbit-animation linear infinite;
 }
 
@@ -106,6 +106,84 @@ h1 {
 
 .mars-orbit { width: var(--mars-orbit-size); height: var(--mars-orbit-size); animation-duration: var(--mars-speed); }
 .mars { width: var(--mars-size); height: var(--mars-size); background-color: #e45831; }
+
+/* --- کمربند سیارکی جدید: سیارک‌های ریزتر و کم‌نورتر در نوار کمربند --- */
+.asteroid-belt {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60vw; /* عرض کلی کمربند برای اطمینان از پوشش */
+    height: 60vw; /* ارتفاع کلی کمربند */
+    border-radius: 50%;
+    z-index: 1;
+    overflow: hidden; 
+    
+    /* از ماسک برای ایجاد حلقه واقعی استفاده می‌کنیم */
+    mask-image: radial-gradient(
+        circle at center,
+        transparent var(--mars-orbit-size), /* داخل مدار مریخ شفاف باشد */
+        black calc(var(--mars-orbit-size) + 1vw), /* لبه داخلی کمربند */
+        black calc(var(--jupiter-orbit-size) - 1vw), /* لبه خارجی کمربند */
+        transparent var(--jupiter-orbit-size) /* خارج از مدار مشتری شفاف باشد */
+    );
+    -webkit-mask-image: radial-gradient(
+        circle at center,
+        transparent var(--mars-orbit-size), 
+        black calc(var(--mars-orbit-size) + 1vw), 
+        black calc(var(--jupiter-orbit-size) - 1vw), 
+        transparent var(--jupiter-orbit-size)
+    );
+
+    /* سیارک‌ها: ریزتر و کم‌نورتر */
+    background: 
+        radial-gradient(circle at 10% 20%, rgba(180, 180, 180, 0.4) 0.15vw, transparent 0.2vw),
+        radial-gradient(circle at 30% 70%, rgba(180, 180, 180, 0.5) 0.1vw, transparent 0.15vw),
+        radial-gradient(circle at 50% 10%, rgba(200, 200, 200, 0.4) 0.2vw, transparent 0.25vw),
+        radial-gradient(circle at 70% 80%, rgba(200, 200, 200, 0.5) 0.15vw, transparent 0.2vw),
+        radial-gradient(circle at 90% 30%, rgba(180, 180, 180, 0.4) 0.18vw, transparent 0.22vw),
+        
+        radial-gradient(circle at 15% 55%, rgba(180, 180, 180, 0.5) 0.12vw, transparent 0.17vw),
+        radial-gradient(circle at 25% 85%, rgba(200, 200, 200, 0.4) 0.22vw, transparent 0.27vw),
+        radial-gradient(circle at 40% 35%, rgba(180, 180, 180, 0.5) 0.16vw, transparent 0.21vw),
+        radial-gradient(circle at 60% 5%, rgba(200, 200, 200, 0.4) 0.1vw, transparent 0.15vw),
+        radial-gradient(circle at 80% 45%, rgba(180, 180, 180, 0.5) 0.2vw, transparent 0.25vw),
+
+        radial-gradient(circle at 5% 95%, rgba(200, 200, 200, 0.4) 0.17vw, transparent 0.22vw),
+        radial-gradient(circle at 35% 15%, rgba(180, 180, 180, 0.5) 0.13vw, transparent 0.18vw),
+        radial-gradient(circle at 65% 90%, rgba(200, 200, 200, 0.4) 0.1vw, transparent 0.15vw),
+        radial-gradient(circle at 95% 5%, rgba(180, 180, 180, 0.5) 0.18vw, transparent 0.23vw),
+        radial-gradient(circle at 20% 75%, rgba(200, 200, 200, 0.4) 0.21vw, transparent 0.26vw),
+
+        radial-gradient(circle at 40% 60%, rgba(180, 180, 180, 0.5) 0.14vw, transparent 0.19vw),
+        radial-gradient(circle at 75% 25%, rgba(200, 200, 200, 0.4) 0.19vw, transparent 0.24vw),
+        radial-gradient(circle at 10% 40%, rgba(180, 180, 180, 0.5) 0.16vw, transparent 0.21vw),
+        radial-gradient(circle at 85% 70%, rgba(200, 200, 200, 0.4) 0.23vw, transparent 0.28vw),
+        radial-gradient(circle at 55% 95%, rgba(180, 180, 180, 0.5) 0.17vw, transparent 0.22vw),
+        
+        radial-gradient(circle at 30% 10%, rgba(200, 200, 200, 0.4) 0.2vw, transparent 0.25vw),
+        radial-gradient(circle at 90% 60%, rgba(180, 180, 180, 0.5) 0.15vw, transparent 0.2vw),
+        radial-gradient(circle at 5% 50%, rgba(200, 200, 200, 0.4) 0.18vw, transparent 0.23vw),
+        radial-gradient(circle at 70% 5%, rgba(180, 180, 180, 0.5) 0.1vw, transparent 0.15vw),
+        radial-gradient(circle at 20% 20%, rgba(200, 200, 200, 0.4) 0.16vw, transparent 0.21vw)
+        ; 
+    
+    background-size: 100% 100%; /* برای اینکه gradient ها تمام فضای کمربند را پوشش دهند */
+    background-position: center center;
+    animation: rotateAsteroidBelt 150s linear infinite; 
+    box-shadow: 0 0 0.5vw rgba(255, 255, 255, 0.03); /* درخشش ملایم‌تر */
+}
+
+/* تعریف انیمیشن چرخش کمربند سیارکی */
+@keyframes rotateAsteroidBelt {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
 
 .jupiter-orbit { width: var(--jupiter-orbit-size); height: var(--jupiter-orbit-size); animation-duration: var(--jupiter-speed); }
 .jupiter { width: var(--jupiter-size); height: var(--jupiter-size); background-color: #c9884e; }
@@ -153,6 +231,7 @@ h1 {
     justify-content: space-between;
     width: 100%;
     margin-bottom: 15px;
+    flex-direction: row-reverse;
 }
 
 .planet-card {
