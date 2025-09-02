@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منظومه خورشیدی</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>منظومه خورشیدی</h1>
+    <p class="subtitle">Solar System</p>
+    
+    <div class="solar-system">
+        <div class="sun"></div>
+        <div class="orbit mercury-orbit"><div class="planet mercury"></div></div>
+        <div class="orbit venus-orbit"><div class="planet venus"></div></div>
+        <div class="orbit earth-orbit"><div class="planet earth"></div></div>
+        <div class="orbit mars-orbit"><div class="planet mars"></div></div>
+        <div class="orbit jupiter-orbit"><div class="planet jupiter"></div></div>
+        <div class="orbit saturn-orbit">
+            <div class="planet saturn"><div class="ring"></div></div>
+        </div>
+        <div class="orbit uranus-orbit"><div class="planet uranus"></div></div>
+        <div class="orbit neptune-orbit"><div class="planet neptune"></div></div>
+    </div>
+    
+    <div class="planet-info-container">
+        <div class="planet-info-row">
+            <div class="planet-card" data-planet="mercury">
+                <div class="info-planet mercury-info"></div>
+                <div class="planet-name">عطارد</div>
+            </div>
+            <div class="planet-card" data-planet="venus">
+                <div class="info-planet venus-info"></div>
+                <div class="planet-name">زهره</div>
+            </div>
+            <div class="planet-card" data-planet="earth">
+                <div class="info-planet earth-info"></div>
+                <div class="planet-name">زمین</div>
+            </div>
+            <div class="planet-card" data-planet="mars">
+                <div class="info-planet mars-info"></div>
+                <div class="planet-name">مریخ</div>
+            </div>
+        </div>
+        <div class="planet-info-row">
+            <div class="planet-card" data-planet="jupiter">
+                <div class="info-planet jupiter-info"></div>
+                <div class="planet-name">مشتری</div>
+            </div>
+            <div class="planet-card" data-planet="saturn">
+                <div class="info-planet saturn-info"></div>
+                <div class="planet-name">زحل</div>
+            </div>
+            <div class="planet-card" data-planet="uranus">
+                <div class="info-planet uranus-info"></div>
+                <div class="planet-name">اورانوس</div>
+            </div>
+            <div class="planet-card" data-planet="neptune">
+                <div class="info-planet neptune-info"></div>
+                <div class="planet-name">نپتون</div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="modal-container"></div>
+    
+    <script src="script.js"></script>
+</body>
+<footer style="text-align: center; margin-top: 10px; color: white;">
+    <p>All rights reserved for Poster Iran © 2025</p>
+</footer>
+</html>
