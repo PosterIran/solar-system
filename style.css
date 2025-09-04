@@ -123,12 +123,13 @@ h1 {
 
     /* پس‌زمینه برای نمایش سیارک‌ها */
     background: 
-        radial-gradient(circle at 10% 20%, rgba(180, 180, 180, 0.4) 0.15vw, transparent 0.2vw),
-        radial-gradient(circle at 30% 70%, rgba(180, 180, 180, 0.5) 0.1vw, transparent 0.15vw),
+        radial-gradient(circle at 15% 20%, rgba(180, 180, 180, 1) 0.15vw, transparent 0.2vw),
+        radial-gradient(circle at 30% 0%, rgba(180, 180, 180, 0.5) 0.1vw, transparent 0.15vw),
         radial-gradient(circle at 50% 10%, rgba(200, 200, 200, 0.4) 0.2vw, transparent 0.25vw),
-        radial-gradient(circle at 70% 80%, rgba(200, 200, 200, 0.5) 0.15vw, transparent 0.2vw),
-        radial-gradient(circle at 90% 30%, rgba(180, 180, 180, 0.4) 0.18vw, transparent 0.22vw),
-        radial-gradient(circle at 5% 55%, rgba(180, 180, 180, 0.5) 0.12vw, transparent 0.17vw),
+        radial-gradient(circle at 70% 0%, rgba(172, 166, 166, 0.51) 0.15vw, transparent 0.2vw),
+        radial-gradient(circle at 90% 5%, rgba(180, 180, 180, 0.4) 0.18vw, transparent 0.22vw),
+        radial-gradient(circle at 5% 55%, rgba(191, 186, 186, 0.46) 0.12vw, transparent 0.17vw),
+        radial-gradient(circle at 5% 58%, rgba(191, 186, 186, 0.46) 0.12vw, transparent 0.17vw),
         radial-gradient(circle at 25% 85%, rgba(180, 180, 180, 0.5) 0.22vw, transparent 0.27vw),
         radial-gradient(circle at 13% 35%, rgba(180, 180, 180, 0.5) 0.16vw, transparent 0.21vw),
         radial-gradient(circle at 60% 5%, rgba(180, 180, 180, 0.5) 0.1vw, transparent 0.15vw),
