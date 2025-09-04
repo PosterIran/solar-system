@@ -304,3 +304,49 @@ h1 {
     font-size: 3.5vw;
     line-height: 1.5;
 }
+
+/* برای ایجاد نقاط ستاره‌ای */
+.stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background:
+        radial-gradient(2px 2px at 20px 30px, #eee, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 30px 70px, #fff, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 80px 10px, #ddd, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 150px 90px, #fff, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 330px 20px, #eee, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 200px 20px, #eee, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 260px 70px, #DDD, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 270px 20px, #eee, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 330px 60px, #eee, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 335px 52px, #fff, rgba(0,0,0,0)),
+        /* شما می‌توانید تعداد این خطوط را برای داشتن ستاره‌های بیشتر، افزایش دهید. */
+        radial-gradient(2px 2px at 60% 20%, #fff, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 10% 90%, #eee, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 20% 20%, #ddd, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 5% 30%, #fff, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 70% 25%, #eee, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 35% 10%, #ddd, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 15% 5%, #fff, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 25% 21%, #eee, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 5% 5%, #ddd, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 95% 95%, #fff, rgba(0,0,0,0));
+    background-size: 500px 500px;
+    animation: stars-flicker 20s infinite;
+}
+
+@keyframes stars-flicker {
+    0%, 100% { opacity: 0.8; }
+    50% { opacity: 0.5; }
+    20%, 70% { opacity: 1; }
+    40%, 90% { opacity: 0.7; }
+}
+
+@keyframes background-flicker {
+    0%, 100% { background-color: #0d0d1a; }
+    50% { background-color: #0c0c19; }
+}
