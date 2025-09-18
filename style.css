@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 :root {
     --mercury-orbit-size: 20vw;
     --venus-orbit-size: 27vw;
@@ -45,6 +49,7 @@ h1 {
     font-size: 8vw;
     margin-bottom: 0;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
 }
 
 .subtitle {
@@ -107,7 +112,6 @@ h1 {
 .mars-orbit { width: var(--mars-orbit-size); height: var(--mars-orbit-size); animation-duration: var(--mars-speed); }
 .mars { width: var(--mars-size); height: var(--mars-size); background-color: #e45831; }
 
-/* --- کمربند سیارکی جدید: سیارک‌های ریزتر و کم‌نورتر --- */
 .asteroid-belt {
     position: absolute;
     top: 50%;
@@ -119,7 +123,7 @@ h1 {
     z-index: 1;
 
     /* استفاده از border برای ایجاد نوار کمربند */
-    border: 5vw solid transparent; /* یک نوار شفاف برای کمربند */
+    border: 33vw solid transparent; /* یک نوار شفاف برای کمربند */
 
     /* پس‌زمینه برای نمایش سیارک‌ها */
     background: 
@@ -149,13 +153,12 @@ h1 {
         radial-gradient(circle at 20% 20%, rgba(200, 200, 200, 0.4) 0.16vw, transparent 0.21vw);
         
     background-size: 100% 100%;
-    background-clip: border-box; /* اطمینان از نمایش پس‌زمینه در محدوده border */
-    background-origin: border-box; /* شروع پس‌زمینه از لبه border */
+    background-clip: border-box; 
+    background-origin: border-box; 
     animation: rotateAsteroidBelt 150s linear infinite; 
     box-shadow: 0 0 0.5vw rgba(255, 255, 255, 0.03); 
 }
 
-/* تعریف انیمیشن چرخش کمربند سیارکی */
 @keyframes rotateAsteroidBelt {
     from {
         transform: translate(-50%, -50%) rotate(0deg);
@@ -198,7 +201,6 @@ h1 {
     }
 }
 
-/* New styles for the planet info section */
 .planet-info-container {
     width: 90vw;
     margin-top: 20px;
@@ -305,7 +307,6 @@ h1 {
     line-height: 1.5;
 }
 
-/* برای ایجاد نقاط ستاره‌ای */
 .stars {
     position: fixed;
     top: 0;
@@ -324,7 +325,6 @@ h1 {
         radial-gradient(2px 2px at 270px 20px, #eee, rgba(0,0,0,0)),
         radial-gradient(2px 2px at 330px 60px, #eee, rgba(0,0,0,0)),
         radial-gradient(2px 2px at 335px 52px, #fff, rgba(0,0,0,0)),
-        /* شما می‌توانید تعداد این خطوط را برای داشتن ستاره‌های بیشتر، افزایش دهید. */
         radial-gradient(2px 2px at 60% 20%, #fff, rgba(0,0,0,0)),
         radial-gradient(2px 2px at 10% 90%, #eee, rgba(0,0,0,0)),
         radial-gradient(2px 2px at 20% 20%, #ddd, rgba(0,0,0,0)),
@@ -349,4 +349,21 @@ h1 {
 @keyframes background-flicker {
     0%, 100% { background-color: #0d0d1a; }
     50% { background-color: #0c0c19; }
+}
+
+.header-logo {
+    width: 10vw;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: transform 0.3s ease-in-out, width 3s ease-in-out;
+    cursor: pointer;
+}
+
+.header-logo.enlarged {
+    width: var(--neptune-orbit-size);
+    height: var(--neptune-orbit-size);
+    transition: transform 2s ease-in-out, width 1s ease-in-out;
 }
