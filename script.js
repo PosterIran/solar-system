@@ -37,6 +37,32 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
+    const solarSystemData = {
+        name: 'منظومه خورشیدی',
+        description: 'منظومه خورشیدی ما شامل خورشید، هشت سیاره اصلی، سیارات کوتوله، قمرها، سیارک‌ها و دنباله‌دارها است. این منظومه در کهکشان راه شیری قرار دارد.'
+    };
+    
+    if (solarSystemTitle) {
+        solarSystemTitle.addEventListener('click', () => {
+            modalContainer.style.display = 'flex';
+            modalContainer.innerHTML = `
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2>${solarSystemData.name}</h2>
+                        <button class="close-button">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <p>${solarSystemData.description}</p>
+                    </div>
+                </div>
+            `;
+            
+            document.querySelector('.close-button').addEventListener('click', () => {
+                modalContainer.style.display = 'none';
+            });
+        });
+    }
+    
     planetCards.forEach(card => {
         card.addEventListener('click', () => {
             const planetKey = card.dataset.planet;
@@ -62,10 +88,20 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
-
+    
     modalContainer.addEventListener('click', (e) => {
         if (e.target.id === 'modal-container') {
             modalContainer.style.display = 'none';
         }
     });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const headerLogo = document.querySelector('.header-logo');
+    
+    if (headerLogo) {
+        headerLogo.addEventListener('click', () => {
+            headerLogo.classList.toggle('enlarged');
+        });
+    }
 });
