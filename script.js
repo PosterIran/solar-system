@@ -1,6 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     const planetCards = document.querySelectorAll('.planet-card');
     const modalContainer = document.getElementById('modal-container');
+    const solarSystemTitle = document.getElementById('solar-system-title');
+    
 
     const planetData = {
         mercury: {
