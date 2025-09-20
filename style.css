@@ -367,3 +367,21 @@ h1 {
     height: var(--neptune-orbit-size);
     transition: transform 2s ease-in-out, width 1s ease-in-out;
 }
+@media (max-width: 768px) {
+    h1 {
+        font-size: 10vw;
+    }
+
+    .subtitle {
+        font-size: 7vw;
+    }
+
+    .planet-name {
+        font-size: 3vw;
+    }
+
+    .info-planet {
+        width: 6vw;
+        height: 6vw;
+    }
+}
