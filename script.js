@@ -43,24 +43,28 @@ document.addEventListener('DOMContentLoaded', () => {
         description: 'منظومه خورشیدی ما شامل خورشید، هشت سیاره اصلی، سیارات کوتوله، قمرها، سیارک‌ها و دنباله‌دارها است. این منظومه در کهکشان راه شیری قرار دارد.'
     };
     
+    function showModal(title, description) {
+        modalContainer.innerHTML = `
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>${title}</h2>
+                    <button class="close-button">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p>${description}</p>
+                </div>
+            </div>
+        `;
+        modalContainer.style.display = 'flex';
+        
+        document.querySelector('.close-button').addEventListener('click', () => {
+            modalContainer.style.display = 'none';
+        });
+    }
+    
     if (solarSystemTitle) {
         solarSystemTitle.addEventListener('click', () => {
-            modalContainer.style.display = 'flex';
-            modalContainer.innerHTML = `
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h2>${solarSystemData.name}</h2>
-                        <button class="close-button">&times;</button>
-                    </div>
-                    <div class="modal-body">
-                        <p>${solarSystemData.description}</p>
-                    </div>
-                </div>
-            `;
-            
-            document.querySelector('.close-button').addEventListener('click', () => {
-                modalContainer.style.display = 'none';
-            });
+            showModal(solarSystemData.name, solarSystemData.description);
         });
     }
     
@@ -70,22 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const data = planetData[planetKey];
             
             if (data) {
-                modalContainer.style.display = 'flex';
-                modalContainer.innerHTML = `
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h2>${data.name}</h2>
-                            <button class="close-button">&times;</button>
-                        </div>
-                        <div class="modal-body">
-                            <p>${data.description}</p>
-                        </div>
-                    </div>
-                `;
-                
-                document.querySelector('.close-button').addEventListener('click', () => {
-                    modalContainer.style.display = 'none';
-                });
+                showModal(data.name, data.description);
             }
         });
     });
@@ -95,11 +84,8 @@ document.addEventListener('DOMContentLoaded', () => {
             modalContainer.style.display = 'none';
         }
     });
-});
-
-document.addEventListener('DOMContentLoaded', () => {
-    const headerLogo = document.querySelector('.header-logo');
     
+    const headerLogo = document.querySelector('.header-logo');
     if (headerLogo) {
         headerLogo.addEventListener('click', () => {
             headerLogo.classList.toggle('enlarged');
