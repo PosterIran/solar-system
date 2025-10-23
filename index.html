@@ -19,6 +19,8 @@
             --saturn-orbit-size: 75vw; 
             --uranus-orbit-size: 85vw; 
             --neptune-orbit-size: 95vw; 
+            /* متغیر جدید برای کمربند کویپر */
+            --kuiper-belt-size: 135vw; 
 
             --mercury-size: 1vw;
             --venus-size: 1.2vw;
@@ -37,6 +39,8 @@
             --saturn-speed: 107.6s;
             --uranus-speed: 306.9s;
             --neptune-speed: 601.9s;
+            /* متغیر جدید برای سرعت کمربند کویپر (بسیار کندتر) */
+            --kuiper-speed: 80s; 
         }
         html, body {
             width: 100%;
@@ -287,7 +291,168 @@
             animation: rotateAsteroidBelt 150s linear infinite; 
             box-shadow: 0 0 0.5vw rgba(255, 255, 255, 0.03); 
         }
+        
+        /* کلاس جدید برای کمربند کویپر - کپی از کمربند سیارکی */
+        .kuiper-belt {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(0deg); 
+            width: var(--kuiper-belt-size); /* استفاده از متغیر جدید */
+            height: var(--kuiper-belt-size); /* استفاده از متغیر جدید */
+            border-radius: 50%;
+            z-index: 0; /* زیر تمام سیارات و مدارها قرار می‌گیرد */
 
+            /* استفاده از border برای ایجاد نوار کمربند */
+            border: 5vw solid transparent; /* کمی نازک‌تر برای دورتر بودن */
+
+            /* پس‌زمینه برای نمایش سیارک‌ها (کپی شده از .asteroid-belt) */
+            background: 
+                radial-gradient(circle at 11% 16%, rgba(180, 180, 180, 0.3) 0.15vw, transparent 0.2vw),
+                radial-gradient(circle at 26% 0%, rgba(180, 180, 180, 0.3) 0.1vw, transparent 0.15vw),
+                radial-gradient(circle at 46% 6%, rgba(200, 200, 200, 0.2) 0.2vw, transparent 0.25vw),
+                radial-gradient(circle at 5% 50%, rgba(191, 186, 186, 0.26) 0.12vw, transparent 0.17vw),
+                radial-gradient(circle at 5% 56%, rgba(191, 186, 186, 0.26) 0.12vw, transparent 0.17vw),
+                radial-gradient(circle at 21% 81%, rgba(180, 180, 180, 0.3) 0.22vw, transparent 0.27vw),
+                radial-gradient(circle at 9% 34%, rgba(144, 135, 135, 0.43) 0.16vw, transparent 0.21vw),
+                radial-gradient(circle at 64% 15%, rgba(180, 180, 180, 0.3) 0.17vw, transparent 0.15vw),
+                radial-gradient(circle at 12% 49%, rgba(125, 101, 101, 0.51) 0.2vw, transparent 0.75vw),
+                radial-gradient(circle at 5% 61%, rgba(115, 108, 109, 0.27) 0.31vw, transparent 0.52vw),
+                radial-gradient(circle at 35% 15%, rgba(180, 180, 180, 0.3) 0.13vw, transparent 0.18vw),
+                radial-gradient(circle at 36% 10%, rgba(180, 180, 180, 0.3) 0.1vw, transparent 0.15vw),
+                radial-gradient(circle at 9% 39%, rgba(144, 138, 138, 0.23) 0.18vw, transparent 0.23vw),
+                radial-gradient(circle at 20% 75%, rgba(181, 168, 171, 0.32) 0.21vw, transparent 0.26vw),
+                radial-gradient(circle at 15% 65%, rgba(149, 145, 146, 0.25) 0.21vw, transparent 0.26vw),
+                radial-gradient(circle at 15% 70%, rgba(170, 163, 164, 0.33) 0.21vw, transparent 0.26vw),
+                radial-gradient(circle at 90% 29%, rgba(200, 200, 200, 0.2) 0.19vw, transparent 0.24vw),
+                radial-gradient(circle at 80% 29%, rgba(200, 200, 200, 0.2) 0.19vw, transparent 0.24vw),
+                radial-gradient(circle at 15% 40%, rgba(167, 153, 153, 0.19) 0.16vw, transparent 0.21vw),
+                radial-gradient(circle at 10% 40%, rgba(147, 142, 142, 0.34) 0.16vw, transparent 0.21vw),
+                radial-gradient(circle at 85% 70%, rgba(147, 142, 142, 0.34) 0.23vw, transparent 0.28vw),
+                radial-gradient(circle at 80% 70%, rgba(147, 142, 142, 0.34) 0.23vw, transparent 0.28vw),
+                radial-gradient(circle at 85% 70%, rgba(146, 140, 130, 0.67) 0.23vw, transparent 0.28vw),
+                radial-gradient(circle at 48% 10%, rgba(200, 200, 200, 0.2) 0.23vw, transparent 0.28vw),
+                radial-gradient(circle at 10% 70%, rgba(145, 140, 140, 0.67) 0.23vw, transparent 0.28vw),
+                radial-gradient(circle at 55% 95%, rgba(200, 200, 200, 0.2) 0.21vw, transparent 0.22vw),
+                radial-gradient(circle at 35% 16%, rgba(117, 109, 109, 0.27) 0.13vw, transparent 0.18vw),
+                radial-gradient(circle at 35% 13%, rgba(98, 98, 102, 0.4) 0.13vw, transparent 0.18vw),
+                radial-gradient(circle at 35% 8%, rgba(129, 125, 125, 0.34) 0.13vw, transparent 0.78vw),
+                radial-gradient(circle at 62% 92%, rgba(133, 117, 117, 0.8) 0.21vw, transparent 0.32vw),
+                radial-gradient(circle at 60% 90%, rgba(133, 117, 117, 0.34) 0.21vw, transparent 0.6vw),
+                radial-gradient(circle at 90% 60%, rgba(185, 181, 181, 0.26) 0.21vw, transparent 0.42vw),
+                radial-gradient(circle at 75% 20%, rgba(130, 112, 112, 0.32) 0.18vw, transparent 0.23vw),
+                radial-gradient(circle at 55% 88%, rgba(147, 138, 138, 0.28) 0.18vw, transparent 0.4vw),
+                radial-gradient(circle at 30% 0%, rgba(180, 180, 180, 0.3) 0.1vw, transparent 0.4vw),
+                radial-gradient(circle at 50% 10%, rgba(200, 200, 200, 0.2) 0.2vw, transparent 0.25vw),
+                radial-gradient(circle at 70% 10%, rgba(172, 166, 166, 0.31) 0.15vw, transparent 0.2vw),
+                radial-gradient(circle at 56% 5%, rgba(180, 180, 180, 0.2) 0.18vw, transparent 0.22vw),
+                radial-gradient(circle at 5% 55%, rgba(191, 186, 186, 0.26) 0.12vw, transparent 0.17vw),
+                radial-gradient(circle at 5% 58%, rgba(191, 186, 186, 0.26) 0.12vw, transparent 0.17vw),
+                radial-gradient(circle at 25% 85%, rgba(180, 180, 180, 0.3) 0.22vw, transparent 0.47vw),
+                radial-gradient(circle at 13% 35%, rgba(180, 180, 180, 0.3) 0.16vw, transparent 0.21vw),
+                radial-gradient(circle at 60% 5%, rgba(180, 180, 180, 0.3) 0.1vw, transparent 0.15vw),
+                radial-gradient(circle at 13% 45%, rgba(180, 180, 180, 0.3) 0.2vw, transparent 0.25vw),
+                radial-gradient(circle at 5% 95%, rgba(200, 200, 200, 0.2) 0.17vw, transparent 0.22vw),
+                radial-gradient(circle at 35% 15%, rgba(180, 180, 180, 0.3) 0.13vw, transparent 0.18vw),
+                radial-gradient(circle at 16% 70%, rgba(180, 180, 180, 0.3) 0.1vw, transparent 0.15vw),
+                radial-gradient(circle at 40% 15%, rgba(200, 200, 200, 0.2) 0.28vw, transparent 0.23vw),
+                radial-gradient(circle at 20% 75%, rgba(181, 168, 171, 0.32) 0.21vw, transparent 0.26vw),
+                radial-gradient(circle at 15% 65%, rgba(149, 145, 146, 0.25) 0.21vw, transparent 0.26vw),
+                radial-gradient(circle at 15% 70%, rgba(170, 163, 164, 0.33) 0.21vw, transparent 0.26vw),
+                radial-gradient(circle at 90% 25%, rgba(200, 200, 200, 0.2) 0.39vw, transparent 0.24vw),
+                radial-gradient(circle at 15% 40%, rgba(167, 153, 153, 0.19) 0.26vw, transparent 0.21vw),
+                radial-gradient(circle at 10% 40%, rgba(147, 142, 142, 0.34) 0.16vw, transparent 0.21vw),
+                radial-gradient(circle at 85% 70%, rgba(147, 142, 142, 0.34) 0.23vw, transparent 0.28vw),
+                radial-gradient(circle at 80% 70%, rgba(147, 142, 142, 0.34) 0.23vw, transparent 0.28vw),
+                radial-gradient(circle at 85% 80%, rgba(146, 140, 140, 0.67) 0.23vw, transparent 0.28vw),
+                radial-gradient(circle at 8% 60%, rgba(200, 200, 200, 0.2) 0.23vw, transparent 0.28vw),
+                radial-gradient(circle at 20% 70%, rgba(145, 140, 140, 0.67) 0.23vw, transparent 0.28vw),
+                radial-gradient(circle at 55% 95%, rgba(118, 109, 109, 0.2) 0.31vw, transparent 0.22vw),
+                radial-gradient(circle at 50% 90%, rgba(117, 111, 111, 0.2) 0.31vw, transparent 0.27vw),
+                radial-gradient(circle at 45% 90%, rgba(118, 112, 113, 0.23) 0.31vw, transparent 0.32vw),
+                radial-gradient(circle at 45% 87%, rgba(151, 141, 141, 0.24) 0.21vw, transparent 0.32vw),
+                radial-gradient(circle at 73% 20%, rgba(145, 134, 134, 0.35) 0.28vw, transparent 0.23vw),
+                radial-gradient(circle at 79% 20%, rgba(171, 157, 157, 0.21) 0.28vw, transparent 0.23vw),
+                radial-gradient(circle at 75% 15%, rgba(161, 151, 151, 0.25) 0.28vw, transparent 0.23vw),
+                radial-gradient(circle at 30% 90%, rgba(135, 127, 127, 0.22) 0.31vw, transparent 0.32vw),
+                radial-gradient(circle at 40% 91%, rgba(111, 108, 108, 0.19) 0.21vw, transparent 0.62vw),
+                radial-gradient(circle at 60% 95%, rgba(93, 86, 87, 0.2) 0.41vw, transparent 0.62vw),
+                radial-gradient(circle at 70% 91%, rgba(97, 91, 91, 0.19) 0.41vw, transparent 0.59vw),
+                radial-gradient(circle at 72% 87%, rgba(101, 95, 95, 0.24) 0.41vw, transparent 0.52vw),
+                radial-gradient(circle at 73% 91%, rgba(160, 159, 159, 0.33) 0.21vw, transparent 0.42vw),
+                radial-gradient(circle at 77% 83%, rgba(183, 172, 172, 0.31) 0.31vw, transparent 0.32vw),
+                radial-gradient(circle at 79% 81%, rgba(178, 166, 166, 0.25) 0.31vw, transparent 0.32vw),
+                radial-gradient(circle at 66% 91%, rgba(183, 170, 171, 0.31) 0.31vw, transparent 0.32vw),
+                radial-gradient(circle at 32% 14%, rgba(193, 180, 180, 0.28) 0.33vw, transparent 0.38vw),
+                radial-gradient(circle at 30% 13%, rgba(135, 128, 128, 0.3) 0.33vw, transparent 0.38vw),
+                radial-gradient(circle at 28% 17%, rgba(132, 125, 125, 0.21) 0.33vw, transparent 0.38vw),
+                radial-gradient(circle at 25% 18%, rgba(181, 166, 166, 0.23) 0.33vw, transparent 0.38vw),
+                radial-gradient(circle at 22% 14%, rgba(154, 149, 149, 0.41) 0.33vw, transparent 0.38vw),
+                radial-gradient(circle at 18% 18%, rgba(177, 172, 172, 0.25) 0.33vw, transparent 0.38vw),
+                radial-gradient(circle at 16% 19%, rgba(158, 147, 147, 0.29) 0.33vw, transparent 0.38vw),
+                radial-gradient(circle at 16% 29%, rgba(170, 152, 152, 0.21) 0.33vw, transparent 0.38vw),
+                radial-gradient(circle at 35% 16%, rgba(117, 109, 109, 0.27) 0.23vw, transparent 0.18vw),
+                radial-gradient(circle at 35% 13%, rgba(98, 98, 102, 0.4) 0.23vw, transparent 0.18vw),
+                radial-gradient(circle at 35% 8%, rgba(180, 180, 180, 0.3) 0.23vw, transparent 0.18vw),
+                radial-gradient(circle at 62% 92%, rgba(133, 117, 117, 0.8) 0.21vw, transparent 0.32vw),
+                radial-gradient(circle at 62% 88%, rgba(169, 166, 166, 0.36) 0.21vw, transparent 0.32vw),
+                radial-gradient(circle at 60% 90%, rgba(133, 117, 117, 0.34) 0.21vw, transparent 0.22vw),
+                radial-gradient(circle at 90% 60%, rgba(185, 181, 181, 0.26) 0.21vw, transparent 0.2vw),
+                radial-gradient(circle at 75% 20%, rgba(130, 112, 112, 0.32) 0.28vw, transparent 0.23vw),
+                radial-gradient(circle at 70% 88%, rgba(182, 174, 174, 0.3) 0.31vw, transparent 0.25vw),
+                radial-gradient(circle at 30% 0%, rgba(180, 180, 180, 0.3) 0.1vw, transparent 0.15vw),
+                radial-gradient(circle at 50% 10%, rgba(200, 200, 200, 0.2) 0.2vw, transparent 0.25vw),
+                radial-gradient(circle at 70% 15%, rgba(172, 166, 166, 0.31) 0.21vw, transparent 0.2vw),
+                radial-gradient(circle at 90% 25%, rgba(180, 180, 180, 0.2) 0.23vw, transparent 0.22vw),
+                radial-gradient(circle at 9% 55%, rgba(191, 186, 186, 0.26) 0.12vw, transparent 0.17vw),
+                radial-gradient(circle at 5% 58%, rgba(191, 186, 186, 0.26) 0.12vw, transparent 0.17vw),
+                radial-gradient(circle at 25% 85%, rgba(180, 180, 180, 0.3) 0.22vw, transparent 0.27vw),
+                radial-gradient(circle at 13% 35%, rgba(180, 180, 180, 0.3) 0.16vw, transparent 0.21vw),
+                radial-gradient(circle at 60% 9%, rgba(180, 180, 180, 0.3) 0.1vw, transparent 0.15vw),
+                radial-gradient(circle at 13% 45%, rgba(158, 146, 146, 0.36) 0.22vw, transparent 0.25vw),
+                radial-gradient(circle at 5% 55%, rgba(200, 200, 200, 0.2) 0.24vw, transparent 0.22vw),
+                radial-gradient(circle at 35% 15%, rgba(180, 180, 180, 0.3) 0.13vw, transparent 0.18vw),
+                radial-gradient(circle at 16% 65%, rgba(180, 180, 180, 0.3) 0.19vw, transparent 0.15vw),
+                radial-gradient(circle at 9% 45%, rgba(200, 200, 200, 0.2) 0.18vw, transparent 0.23vw),
+                radial-gradient(circle at 20% 75%, rgba(181, 168, 171, 0.32) 0.21vw, transparent 0.26vw),
+                radial-gradient(circle at 15% 65%, rgba(149, 145, 146, 0.25) 0.21vw, transparent 0.26vw),
+                radial-gradient(circle at 15% 70%, rgba(170, 163, 164, 0.33) 0.21vw, transparent 0.26vw),
+                radial-gradient(circle at 90% 35%, rgba(200, 200, 200, 0.2) 0.19vw, transparent 0.24vw),
+                radial-gradient(circle at 15% 40%, rgba(167, 153, 153, 0.19) 0.26vw, transparent 0.21vw),
+                radial-gradient(circle at 10% 40%, rgba(147, 142, 142, 0.34) 0.16vw, transparent 0.21vw),
+                radial-gradient(circle at 85% 70%, rgba(147, 142, 142, 0.34) 0.23vw, transparent 0.28vw),
+                radial-gradient(circle at 80% 70%, rgba(147, 142, 142, 0.34) 0.23vw, transparent 0.28vw),
+                radial-gradient(circle at 85% 80%, rgba(146, 140, 140, 0.67) 0.23vw, transparent 0.38vw),
+                radial-gradient(circle at 8% 60%, rgba(200, 200, 200, 0.2) 0.23vw, transparent 0.28vw),
+                radial-gradient(circle at 10% 70%, rgba(145, 140, 140, 0.67) 0.23vw, transparent 0.28vw),
+                radial-gradient(circle at 55% 95%, rgba(200, 200, 200, 0.2) 0.21vw, transparent 0.22vw),
+                radial-gradient(circle at 35% 16%, rgba(117, 109, 109, 0.27) 0.13vw, transparent 0.28vw),
+                radial-gradient(circle at 35% 13%, rgba(98, 98, 102, 0.4) 0.13vw, transparent 0.18vw),
+                radial-gradient(circle at 30% 8%, rgba(146, 141, 141, 0.31) 0.33vw, transparent 0.18vw),
+                radial-gradient(circle at 62% 88%, rgba(133, 117, 117, 0.8) 0.21vw, transparent 0.32vw),
+                radial-gradient(circle at 60% 90%, rgba(133, 117, 117, 0.34) 0.21vw, transparent 0.22vw),
+                radial-gradient(circle at 90% 60%, rgba(185, 181, 181, 0.26) 0.21vw, transparent 0.2vw),
+                radial-gradient(circle at 90% 54%, rgba(162, 152, 152, 0.31) 0.21vw, transparent 0.2vw),
+                radial-gradient(circle at 88% 50%, rgba(193, 188, 188, 0.35) 0.21vw, transparent 0.2vw),
+                radial-gradient(circle at 90% 64%, rgba(156, 146, 146, 0.28) 0.21vw, transparent 0.2vw),
+                radial-gradient(circle at 91% 68%, rgba(164, 151, 151, 0.27) 0.21vw, transparent 0.2vw),
+                radial-gradient(circle at 92% 61%, rgba(167, 159, 159, 0.22) 0.21vw, transparent 0.2vw),
+                radial-gradient(circle at 87% 61%, rgba(161, 150, 150, 0.22) 0.21vw, transparent 0.2vw),
+                radial-gradient(circle at 89% 45%, rgba(160, 152, 152, 0.26) 0.21vw, transparent 0.29vw),
+                radial-gradient(circle at 86% 43%, rgba(139, 132, 132, 0.26) 0.21vw, transparent 0.22vw),
+                radial-gradient(circle at 89% 44%, rgba(129, 123, 123, 0.29) 0.21vw, transparent 0.25vw),
+                radial-gradient(circle at 85% 443%, rgba(137, 130, 130, 0.31) 0.21vw, transparent 0.27vw),
+                radial-gradient(circle at 75% 20%, rgba(130, 112, 112, 0.32) 0.18vw, transparent 0.23vw),
+                radial-gradient(circle at 70% 87%, rgba(154, 151, 151, 0.34) 0.1vw, transparent 0.35vw),
+                radial-gradient(circle at 20% 20%, rgba(155, 143, 143, 0.27) 0.16vw, transparent 0.21vw);
+                
+            background-size: 100% 100%;
+            background-clip: border-box; 
+            background-origin: border-box; 
+            animation: rotateAsteroidBelt var(--kuiper-speed) linear infinite; /* استفاده از سرعت جدید */
+            box-shadow: 0 0 0.5vw rgba(255, 255, 255, 0.01); /* سایه کم رنگ‌تر */
+        }
+        
         @keyframes rotateAsteroidBelt {
             from {
                 transform: translate(-50%, -50%) rotate(0deg);
@@ -644,6 +809,8 @@
         <div class="orbit uranus-orbit"><div class="planet uranus"></div></div>
         <div class="orbit neptune-orbit"><div class="planet neptune"></div></div>
         
+        <div class="kuiper-belt"></div>
+        
         <div class="comet">
             <div class="comet-nucleus"></div>
             <div class="comet-tail"></div>
@@ -793,7 +960,7 @@ neptune: {
                 },
                 spacecraft: {
                     name: 'سفینه فضایی',
-                    description: 'وسیله‌ای که برای سفر در فضا و انجام ماموریت‌های فضایی طراحی شده است. می‌توانند رباتیک (مانند وویجر) یا سرنشین‌دار (مانند آپولو) باشند.'
+                    description: 'وسیله‌ای که برای سفر در فضا و انجام ماموریت‌های فضایی طراحی شده است. می‌توانند ربوتیک (مانند وویجر) یا سرنشین‌دار (مانند آپولو) باشند.'
                 },
                 space_station: {
                     name: 'ایستگاه فضایی',
