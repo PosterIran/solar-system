@@ -47,18 +47,16 @@
             margin: 0;
             padding: 0;
             overflow-x: hidden;
-            overflow-y: auto; /* یا auto اگر بخواهید اسکرول عمودی باشد */
+            overflow-y: hidden; /* یا auto اگر بخواهید اسکرول عمودی باشد */
         }
         
         body {
             background-color: #0d0d1a;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            overflow: auto;
+           display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* تغییر از center به space-between */
+    align-items: center;
+    height: 100vh;
             color: #fff;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
@@ -566,7 +564,7 @@
             position: relative;
             max-height: 90vh; 
             /* !!! این خط برای فعال کردن اسکرول عمودی اضافه شده است !!! */
-            overflow-y: auto; }
+            overflow-y: hidden; }
             
         .modal-header {
             display: flex;
@@ -792,6 +790,41 @@
             position: relative;
             
         }
+        @media (max-width: 768px) {
+    /* کاهش اندازه کلیدهای سیارات */
+    .planet-buttons { 
+        /* فرض بر این است که کلیدها در کلاسی به نام planet-buttons قرار دارند */
+        display: flex;
+        flex-wrap: wrap; /* اجازه می‌دهد کلیدها در صورت لزوم به خط بعدی بروند */
+        justify-content: center;
+        margin-top: 10px; /* کاهش فاصله از قسمت بالا */
+        margin-bottom: 5px; /* کاهش فاصله از قسمت پایین */
+        gap: 5px; /* کاهش فاصله بین کلیدها */
+    }
+
+    .planet-buttons button, 
+    .planet-buttons a {
+        /* کاهش Padding و اندازه فونت دکمه‌ها برای جا شدن بیشتر */
+        padding: 5px 8px; 
+        font-size: 10px; 
+    }
+
+    /* کاهش اندازه فونت تگ <small> انتهایی */
+    body small { 
+        /* اعمال سبک‌های جدید برای کوچک‌تر شدن متن انتهایی */
+        font-size: 8px !important; 
+        line-height: 1; /* کاهش ارتفاع خط برای جلوگیری از اشغال فضای عمودی زیاد */
+        margin: 0; /* حذف margin اضافی */
+        padding-bottom: 5px; /* اضافه کردن یک پدینگ کوچک در پایین */
+    }
+
+    /* کاهش اندازه کلی منظومه شمسی برای ایجاد فضای بیشتر در پایین */
+    #solar-system { 
+        /* فرض بر این است که بخش اصلی منظومه در عنصری با id="solar-system" قرار دارد */
+        transform: scale(0.9); /* کمی کوچک کردن کل منظومه */
+        margin-top: -10px; /* کمی کشیدن به بالا برای صرفه‌جویی در فضا */
+    }
+}
     </style>
 </head>
 <body>
