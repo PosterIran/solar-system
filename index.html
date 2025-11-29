@@ -564,7 +564,7 @@
             position: relative;
             max-height: 90vh; 
             /* !!! این خط برای فعال کردن اسکرول عمودی اضافه شده است !!! */
-            overflow-y: hidden; }
+            overflow-y: auto; }
             
         .modal-header {
             display: flex;
@@ -824,6 +824,59 @@
         transform: scale(0.9); /* کمی کوچک کردن کل منظومه */
         margin-top: -10px; /* کمی کشیدن به بالا برای صرفه‌جویی در فضا */
     }
+    #solar-system {
+    /* اجازه می‌دهد این عنصر تمام فضای خالی عمودی را اشغال کند */
+    flex-grow: 1;
+    /* این خاصیت برای اطمینان از قرارگیری در کادر است */
+    flex-shrink: 1;
+    /* این خاصیت را به 0 تغییر دهید اگر نمی‌خواهید منظومه شمسی حرکت کند */
+    /* margin-top: auto;
+    margin-bottom: auto; */
+    
+    /* تنظیمات مرکزی: اگر از transform: translate استفاده می‌کنید، ممکن است به جای flex-grow نیاز به تنظیم دقیق ارتفاع داشته باشید */
+}@media (max-width: 768px) {
+    
+    /* 1. کاهش مقیاس کل منظومه شمسی برای فضای بیشتر */
+    #solar-system {
+        /* کوچک کردن کل منظومه شمسی برای جا شدن در فضای محدود موبایل */
+        transform: scale(0.8); 
+        transform-origin: center center; /* مطمئن شوید که به درستی کوچک می‌شود */
+        margin: 0; /* حذف هرگونه margin اضافی */
+    }
+    
+    /* 2. کلیدهای سیارات (planet-buttons) */
+    .planet-buttons { 
+        display: flex;
+        flex-wrap: wrap; 
+        justify-content: center;
+        margin: 3px 0; /* کاهش شدید فاصله عمودی */
+        gap: 2px; /* کاهش فاصله بین دکمه‌ها */
+        padding: 0 2px;
+    }
+
+    .planet-buttons button, 
+    .planet-buttons a {
+        padding: 3px 5px; /* حداقل پدینگ ممکن */
+        font-size: 8px; /* کوچکترین اندازه فونت */
+        height: min-content; /* مطمئن شوید ارتفاع را بر اساس محتوا می‌گیرد */
+        line-height: 1;
+    }
+
+    /* 3. تگ <small> انتهایی (Footer Text) */
+    /* اعمال قوانین سختگیرانه به تمام عناصر داخل تگ <small> */
+    body small, 
+    body small strong, 
+    body small a,
+    body small span {
+        font-size: 7px !important; /* کوچکترین اندازه فونت، با !important برای غلبه بر قوانین داخلی */
+        line-height: 1; /* حذف فضای خالی بین خطوط */
+        padding: 0;
+        margin: 0; /* حذف کامل مارجین */
+        display: block; /* برای مدیریت بهتر عرض */
+        width: 100%;
+        text-align: center;
+    }
+}
 }
     </style>
 </head>
