@@ -94,9 +94,14 @@
             transform: translate(-50%, -50%);
             width: 10vw;
             height: 10vw;
-            background: radial-gradient(circle at 30% 30%, #fff, #ffcc00, #ff9900);
+            /* تغییرات جدید: */
+            background-image: url('Images/sun.png'); /* مسیر تصویر خورشید */
+            background-size: cover; /* پوشش کامل دایره توسط تصویر */
+            background-position: center;
+            background-repeat: no-repeat;
+            
             border-radius: 50%;
-            box-shadow: 0 0 4vw 2vw rgba(255, 204, 0, 0.7);
+            box-shadow: 0 0 4vw 2vw rgba(255, 204, 0, 0.7); /* حفظ هاله نور دور خورشید */
             z-index: 10;
         }
 
@@ -1100,4 +1105,5 @@ neptune: {
         <p>All rights reserved for Poster Iran © 2025</p>
     </footer>
 </body>
+
 </html>
