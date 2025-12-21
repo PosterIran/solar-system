@@ -1,0 +1,21 @@
+{
+  "name": "منظومه خورشیدی",
+  "short_name": "منظومه",
+  "description": "شبیه‌سازی تعاملی منظومه خورشیدی",
+  "start_url": "./Solar-system (13).html",
+  "display": "standalone",
+  "background_color": "#0d0d1a",
+  "theme_color": "#0d0d1a",
+  "icons": [
+    {
+      "src": "https://raw.githubusercontent.com/PosterIran/solar-system/main/solar-system.webp",
+      "sizes": "192x192",
+      "type": "image/webp"
+    },
+    {
+      "src": "https://raw.githubusercontent.com/PosterIran/solar-system/main/solar-system.webp",
+      "sizes": "512x512",
+      "type": "image/webp"
+    }
+  ]
+}
