@@ -151,7 +151,19 @@
         .venus { width: var(--venus-size); height: var(--venus-size); background-color: #e0c060; }
 
         .earth-orbit { width: var(--earth-orbit-size); height: var(--earth-orbit-size); animation-duration: var(--earth-speed); }
-        .earth { width: var(--earth-size); height: var(--earth-size); background-color: #007bff; }
+        .earth { 
+    width: var(--earth-size); 
+    height: var(--earth-size); 
+    background-image: url('Images/earth.png'); /* آدرس تصویر زمین */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    box-shadow: none; /* حذف هاله رنگی قدیمی */
+    
+    /* اضافه کردن انیمیشن چرخش به دور خود سیاره */
+    animation: planet-rotate 10s linear infinite; 
+}
 
         .mars-orbit { width: var(--mars-orbit-size); height: var(--mars-orbit-size); animation-duration: var(--mars-speed); }
         .mars { width: var(--mars-size); height: var(--mars-size); background-color: #e45831; }
