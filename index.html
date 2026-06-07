@@ -3,6 +3,7 @@
 <head>
     <link rel="icon" type="image/webp" href="https://raw.githubusercontent.com/PosterIran/solar-system/main/solar-system.webp">
     <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/PosterIran/solar-system/main/solar-system.webp">
+    <link rel="manifest" href="manifest.json">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="منظومه خورشیدی">
     <meta charset="UTF-8">
@@ -1029,7 +1030,7 @@ neptune: {
     },
     space_history: {
         name: 'تاریخچه اکتشافات فضایی',
-        description: 'مروری بر رویدادهای مهم مانند ارسال اولین ماهواره (اسپوتنیک ۱)، اولین انسان در فضا (یوری گاگارین) و مأموریت‌های آپولو که منجر به فرود بر ماه شد'
+        description: 'رویدادهای مهم مانند ارسال اولین ماهواره (اسپوتنیک ۱)، اولین انسان در فضا (یوری گاگارین) و مأموریت‌های آپولو که منجر به فرود بر ماه شد و طولانی‌ترین سفر انسان به فضا آرتمیس ۲'
     },
 // ... سایر اطلاعات قبلی
                 // --- New Space Objects for the Menu ---
@@ -1164,6 +1165,15 @@ neptune: {
             }
         });
     </script>
+    <script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('./service-worker.js')
+        .then(reg => console.log('سرویس ورکر با موفقیت ثبت شد:', reg.scope))
+        .catch(err => console.error('خطا در ثبت سرویس ورکر:', err));
+    });
+  }
+</script>
     <script src="live-reload.js"></script>
     <footer style="text-align: center; margin-top: 10px; color: white;">
         <p>All rights reserved for Poster Iran © 2025</p>
