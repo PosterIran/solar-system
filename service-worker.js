@@ -1,6 +1,6 @@
 const CACHE_NAME = 'solar-system-v1';
 const ASSETS_TO_CACHE = [
-  './Solar-system%20(1).html',
+  './index.html',
   'https://raw.githubusercontent.com/PosterIran/solar-system/main/solar-system.webp',
   'https://PosterIran.github.io/solar-system/Images/sun.png',
   'https://PosterIran.github.io/solar-system/Images/mercury.png',
