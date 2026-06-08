@@ -1,21 +1,25 @@
 {
-  "name": "منظومه خورشیدی شبیه‌سازی شده",
+  "name": "منظومه خورشیدی",
   "short_name": "منظومه خورشیدی",
   "description": "شبیه‌سازی پویا و زیبای منظومه خورشیدی به همراه اطلاعات سیارات",
-  "start_url": "./index.html",
-  "display": "standalone",
-  "background_color": "#0d0d1a",
-  "theme_color": "#0d0d1a",
-  "orientation": "any",
   "icons": [
-    {
-      "src": "https://raw.githubusercontent.com/PosterIran/solar-system/main/solar-system.webp",
-      "sizes": "192x192",
-      "type": "image/webp",
-      "purpose": "any"
-    },
-    {
-      "src": "https://raw.githubusercontent.com/PosterIran/solar-system/main/solar-system.webp",
+      {
+        "src": "icons/icon-192x192.png",
+        "type": "image/png",
+        "sizes": "192x192"
+      },
+      {
+        "src": "icons/icon-512x512.png",
+        "type": "image/png",
+        "sizes": "512x512"
+      }
+  ],
+  "start_url": "./index.html",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "scope": "./",
+  "theme_color": "#1e40af"
+} "https://raw.githubusercontent.com/PosterIran/solar-system/main/solar-system.webp",
       "sizes": "512x512",
       "type": "image/webp",
       "purpose": "any"
