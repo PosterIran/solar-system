@@ -1,6 +1,6 @@
 const CACHE_NAME = 'solar-system-v1';
 const ASSETS_TO_CACHE = [
-  './index.html',
+  './Solar-system%20(1).html',
   'https://raw.githubusercontent.com/PosterIran/solar-system/main/solar-system.webp',
   'https://PosterIran.github.io/solar-system/Images/sun.png',
   'https://PosterIran.github.io/solar-system/Images/mercury.png',
@@ -38,20 +38,19 @@ self.addEventListener('activate', (event) => {
 });
 
 // استراتژی پاسخ‌دهی شبکه/کش (اول کش، سپس بروزرسانی از شبکه)
-// جایگزین کردن این کد در بخش fetch فایل service-worker.js
-self.addEventListener('fetch', event => {
+self.addEventListener('fetch', (event) => {
   event.respondWith(
-    fetch(event.request)
-    .then(response => {
-      // اگر اینترنت وصل بود، نسخه جدید را در کش هم آپدیت کن
-      return caches.open(CACHE_NAME).then(cache => {
-        cache.put(event.request, response.clone());
-        return response;
-      });
-    })
-    .catch(() => {
-      // اگر اینترنت قطع بود، فایل را از کش بخوان
-      return caches.match(event.request);
+    caches.match(event.request).then((cachedResponse) => {
+      if (cachedResponse) {
+        // برای سرعت بیشتر نسخه کش شده را برمی‌گرداند و در پس‌زمینه شبکه را چک می‌کند
+        fetch(event.request).then((networkResponse) => {
+          if (networkResponse.status === 200) {
+            caches.open(CACHE_NAME).then((cache) => cache.put(event.request, networkResponse));
+          }
+        }).catch(() => console.log('برنامه در حالت آفلاین است.'));
+        return cachedResponse;
+      }
+      return fetch(event.request);
     })
   );
 });
