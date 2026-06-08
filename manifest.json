@@ -1,8 +1,8 @@
 {
-  "name": "منظومه خورشیدی",
+  "name": "منظومه خورشیدی شبیه‌سازی شده",
   "short_name": "منظومه خورشیدی",
   "description": "شبیه‌سازی پویا و زیبای منظومه خورشیدی به همراه اطلاعات سیارات",
-  "start_url": "./.html",
+  "start_url": "./Solar-system%20(1).html",
   "display": "standalone",
   "background_color": "#0d0d1a",
   "theme_color": "#0d0d1a",
