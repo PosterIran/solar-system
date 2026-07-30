@@ -406,48 +406,37 @@
         #pwa-install-banner {
             display: none;
             position: fixed;
-            bottom: 25px;
+            bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
             z-index: 99;
-            background: linear-gradient(135deg, rgba(20, 20, 38, 0.92), rgba(35, 35, 60, 0.95));
-            border: 1px solid rgba(255, 204, 0, 0.4);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 15px rgba(255, 204, 0, 0.15);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-radius: 30px;
-            padding: 10px 18px;
+            background: rgba(26, 26, 46, 0.95);
+            border: 1px solid #ffcc00;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(8px);
+            border-radius: 50px;
+            padding: 10px 20px;
             align-items: center;
-            gap: 14px;
-            color: #f0f0f0;
+            gap: 12px;
+            color: #fff;
             font-size: 14px;
-            opacity: 1;
-            transition: opacity 0.5s ease, transform 0.5s ease;
+            animation: pulse-border 2s infinite ease-in-out;
         }
 
-        #pwa-install-banner.pwa-banner-hidden {
-            opacity: 0;
-            transform: translate(-50%, 20px);
-            pointer-events: none;
+        @keyframes pulse-border {
+            0%, 100% { border-color: rgba(255, 204, 0, 0.4); }
+            50% { border-color: rgba(255, 204, 0, 1); }
         }
 
         #pwa-install-banner button.install-btn {
-            background: linear-gradient(135deg, #ffd700, #cca000);
+            background: #ffcc00;
             color: #0d0d1a;
             border: none;
-            padding: 7px 18px;
+            padding: 6px 16px;
             border-radius: 20px;
-            font-weight: 700;
-            letter-spacing: 0.3px;
+            font-weight: bold;
             cursor: pointer;
-            box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
-            transition: all 0.25s ease;
-        }
-
-        #pwa-install-banner button.install-btn:hover {
-            background: linear-gradient(135deg, #ffe033, #e6b800);
-            box-shadow: 0 6px 16px rgba(255, 215, 0, 0.5);
-            transform: translateY(-1px);
+            transition: transform 0.2s;
         }
 
         #pwa-install-banner button.install-btn:active {
@@ -458,15 +447,9 @@
             background: none;
             border: none;
             color: #aaa;
-            font-size: 20px;
+            font-size: 18px;
             cursor: pointer;
             padding: 0 4px;
-            line-height: 1;
-            transition: color 0.2s ease;
-        }
-
-        #pwa-install-banner button.close-pwa-btn:hover {
-            color: #fff;
         }
 
         #modal-container {
@@ -803,71 +786,28 @@
 
     <script>
         let deferredPrompt = null;
-        let pwaBannerTimer = null;
-
         const installMenuItem = document.getElementById('install-menu-item');
         const pwaBanner = document.getElementById('pwa-install-banner');
         const bannerInstallBtn = document.getElementById('banner-install-btn');
         const bannerCloseBtn = document.getElementById('banner-close-btn');
 
-        // بررسی اینکه آیا برنامه قبلاً نصب شده است یاخیر
-        function isAppInstalled() {
-            return (
-                window.matchMedia('(display-mode: standalone)').matches ||
-                window.navigator.standalone === true ||
-                localStorage.getItem('pwa_installed') === 'true'
-            );
-        }
-
-        // در صورت نصب بودن، پیغام مخفی باقی می‌ماند
-        if (isAppInstalled()) {
-            if (installMenuItem) installMenuItem.style.display = 'none';
-            if (pwaBanner) pwaBanner.style.display = 'none';
-        }
-
         window.addEventListener('beforeinstallprompt', (e) => {
-            // اگر قبلاً نصب شده، پیغام را کلاً نشان نده
-            if (isAppInstalled()) return;
-
             // جلوگیری از نمایش بنر پیش‌فرض مرورگر
             e.preventDefault();
             deferredPrompt = e;
 
-            // نمایش دکمه نصب در منوی کشویی
+            // نمایش دکمه نصب در منوی کشویی و بنر پایین
             if (installMenuItem) installMenuItem.style.display = 'flex';
-
-            // نمایش بنر شناور مدرن و کلاسیک
-            if (pwaBanner) {
-                pwaBanner.classList.remove('pwa-banner-hidden');
-                pwaBanner.style.display = 'flex';
-
-                // حذف اتوماتیک بنر بعد از ۷ ثانیه
-                clearTimeout(pwaBannerTimer);
-                pwaBannerTimer = setTimeout(() => {
-                    hideBannerWithAnimation();
-                }, 7000);
-            }
+            if (pwaBanner) pwaBanner.style.display = 'flex';
         });
-
-        function hideBannerWithAnimation() {
-            if (!pwaBanner) return;
-            pwaBanner.classList.add('pwa-banner-hidden');
-            setTimeout(() => {
-                pwaBanner.style.display = 'none';
-            }, 500);
-        }
 
         async function triggerPwaInstall() {
             if (!deferredPrompt) return;
             deferredPrompt.prompt();
             const { outcome } = await deferredPrompt.userChoice;
-            
-            if (outcome === 'accepted') {
-                localStorage.setItem('pwa_installed', 'true');
-            }
+            console.log(`User response to install prompt: ${outcome}`);
             deferredPrompt = null;
-            
-            hideBannerWithAnimation();
+            if (pwaBanner) pwaBanner.style.display = 'none';
             if (installMenuItem) installMenuItem.style.display = 'none';
         }
 
@@ -879,15 +819,13 @@
         }
         if (bannerCloseBtn) {
             bannerCloseBtn.addEventListener('click', () => {
-                clearTimeout(pwaBannerTimer);
-                hideBannerWithAnimation();
+                pwaBanner.style.display = 'none';
             });
         }
 
         window.addEventListener('appinstalled', () => {
             console.log('PWA was installed successfully!');
-            localStorage.setItem('pwa_installed', 'true');
-            hideBannerWithAnimation();
+            if (pwaBanner) pwaBanner.style.display = 'none';
             if (installMenuItem) installMenuItem.style.display = 'none';
         });
     </script>
