@@ -145,7 +145,7 @@
             background-repeat: no-repeat;
             border-radius: 50%;
             z-index: 10;
-            mix-blend-mode: screen; /* مخفی کردن پس‌زمینه سیاه تصاویر */     isolation: isolate;     /* جلوگیری از تداخل لایه‌ها هنگام کلیک و فوکوس */
+            mix-blend-mode: screen;
             animation: sun-rotate 20s linear infinite;
             cursor: pointer;
             pointer-events: auto;
@@ -167,7 +167,7 @@
             animation: orbit-animation linear infinite;
             pointer-events: none; 
             z-index: 3; 
-            mix-blend-mode: screen; /* مخفی کردن پس‌زمینه سیاه تصاویر */     isolation: isolate;     /* جلوگیری از تداخل لایه‌ها هنگام کلیک و فوکوس */
+            mix-blend-mode: screen;
         }
 
         .planet {
@@ -180,7 +180,7 @@
             background-position: center;
             background-repeat: no-repeat;
             box-shadow: none;
-            mix-blend-mode: screen; /* مخفی کردن پس‌زمینه سیاه تصاویر */     isolation: isolate;     /* جلوگیری از تداخل لایه‌ها هنگام کلیک و فوکوس */
+            mix-blend-mode: screen;
             animation: planet-rotate 0s linear infinite;
             z-index: 4; 
             pointer-events: auto;
@@ -260,7 +260,7 @@
             display: flex;
             justify-content: space-around;
             width: 100%;
-            flex-direction: row;
+            flex-direction: row-reverse;
         }
 
         .planet-card {
@@ -284,7 +284,7 @@
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            mix-blend-mode: screen; /* مخفی کردن پس‌زمینه سیاه تصاویر */     isolation: isolate;     /* جلوگیری از تداخل لایه‌ها هنگام کلیک و فوکوس */
+            mix-blend-mode: screen;
         }
 
         .planet-name {
@@ -536,7 +536,7 @@
             height: 15vh;
             object-fit: cover;
             border-radius: 0;
-            mix-blend-mode: screen; /* مخفی کردن پس‌زمینه سیاه تصاویر */     isolation: isolate;     /* جلوگیری از تداخل لایه‌ها هنگام کلیک و فوکوس */
+            mix-blend-mode: screen;
             background-color: transparent;
         }
 
@@ -678,7 +678,7 @@
     </div>
     
     <div id="pwa-install-banner">
-        <span> برنامه‌ی منظومه خورشیدی را نصب کنید</span>
+        <span>📲 برنامه‌ی منظومه خورشیدی را نصب کنید</span>
         <button class="install-btn" id="banner-install-btn">نصب</button>
         <button class="close-pwa-btn" id="banner-close-btn">&times;</button>
     </div>
@@ -694,7 +694,7 @@
         (function initDynamicManifest() {
             const manifestData = {
                 "short_name": "منظومه خورشیدی",
-                "name": "سفری شگفت‌انگیز در اعماق کیهان",
+                "name": "سفری شگفت‌انگیز در اعماق کیهانسازی منظومه خورشیدی پوستر ایران",
                 "description": "شبیه‌سازی پویا و زیبای منظومه خورشیدی به همراه اطلاعات سیارات",
                 "start_url": "./",
                 "display": "standalone",
@@ -1428,6 +1428,5 @@
             }
         });
     </script>
-    <script src="live-reload.js"></script>
 </body>
 </html>
