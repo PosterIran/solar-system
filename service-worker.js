@@ -1,4 +1,4 @@
-const CACHE_NAME = 'solar-system-v3';
+const CACHE_NAME = 'solar-system-v4';
 
 // فایل‌های حیاتی که برای فعال شدن دکمه نصب الزامی هستند
 const CORE_ASSETS = [
